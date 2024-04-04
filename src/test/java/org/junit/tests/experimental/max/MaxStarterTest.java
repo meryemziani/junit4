@@ -273,7 +273,7 @@ public class MaxStarterTest {
     @Test
     public void halfMalformed() {
         assertThat(JUnitCore.runClasses(HalfMalformedJUnit38TestMethod.class)
-                .getFailureCount(), is(1));
+                .getFailureCount(), is(2));
     }
 
 

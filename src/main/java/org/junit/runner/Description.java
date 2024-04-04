@@ -33,6 +33,27 @@ public class Description implements Serializable {
     private static final Pattern METHOD_AND_CLASS_NAME_PATTERN = Pattern
             .compile("([\\s\\S]*)\\((.*)\\)");
 
+
+    public static final Description EMPTY = new Description(null, "No Tests");
+
+    /**
+     * Describes a step in the test-running mechanism that goes so wrong no
+     * other description can be used (for example, an exception thrown from a Runner's
+     * constructor
+     */
+    public static final Description TEST_MECHANISM = new Description(null, "Test mechanism");
+
+    /*
+     * We have to use the f prefix until the next major release to ensure
+     * serialization compatibility. 
+     * See https://github.com/junit-team/junit4/issues/976
+     */
+    private final Collection<Description> fChildren = new ConcurrentLinkedQueue<Description>();
+    private final String fDisplayName;
+    private final Serializable fUniqueId;
+    private final Annotation[] fAnnotations;
+    private volatile /* write-once */ Class<?> fTestClass;
+
     /**
      * Create a <code>Description</code> named <code>name</code>.
      * Generally, you will add children to this <code>Description</code>.
@@ -110,9 +131,6 @@ public class Description implements Serializable {
         return new Description(null, formatDisplayName(name, className), uniqueId);
     }
 
-    private static String formatDisplayName(String name, String className) {
-        return String.format("%s(%s)", name, className);
-    }
 
     /**
      * Create a <code>Description</code> named after <code>testClass</code>
@@ -134,49 +152,6 @@ public class Description implements Serializable {
     public static Description createSuiteDescription(Class<?> testClass, Annotation... annotations) {
         return new Description(testClass, testClass.getName(), annotations);
     }
-
-    /**
-     * Describes a Runner which runs no tests
-     */
-    public static final Description EMPTY = new Description(null, "No Tests");
-
-    /**
-     * Describes a step in the test-running mechanism that goes so wrong no
-     * other description can be used (for example, an exception thrown from a Runner's
-     * constructor
-     */
-    public static final Description TEST_MECHANISM = new Description(null, "Test mechanism");
-
-    /*
-     * We have to use the f prefix until the next major release to ensure
-     * serialization compatibility. 
-     * See https://github.com/junit-team/junit4/issues/976
-     */
-    private final Collection<Description> fChildren = new ConcurrentLinkedQueue<Description>();
-    private final String fDisplayName;
-    private final Serializable fUniqueId;
-    private final Annotation[] fAnnotations;
-    private volatile /* write-once */ Class<?> fTestClass;
-
-    private Description(Class<?> clazz, String displayName, Annotation... annotations) {
-        this(clazz, displayName, displayName, annotations);
-    }
-
-    private Description(Class<?> testClass, String displayName, Serializable uniqueId, Annotation... annotations) {
-        if ((displayName == null) || (displayName.length() == 0)) {
-            throw new IllegalArgumentException(
-                    "The display name must not be empty.");
-        }
-        if ((uniqueId == null)) {
-            throw new IllegalArgumentException(
-                    "The unique id must not be null.");
-        }
-        this.fTestClass = testClass;
-        this.fDisplayName = displayName;
-        this.fUniqueId = uniqueId;
-        this.fAnnotations = annotations;
-    }
-
     /**
      * @return a user-understandable label
      */
@@ -317,6 +292,32 @@ public class Description implements Serializable {
      */
     public String getMethodName() {
         return methodAndClassNamePatternGroupOrDefault(1, null);
+    }
+
+    /**
+     * Describes a Runner which runs no tests
+     */
+    private Description(Class<?> clazz, String displayName, Annotation... annotations) {
+        this(clazz, displayName, displayName, annotations);
+    }
+
+    private Description(Class<?> testClass, String displayName, Serializable uniqueId, Annotation... annotations) {
+        if ((displayName == null) || (displayName.length() == 0)) {
+            throw new IllegalArgumentException(
+                    "The display name must not be empty.");
+        }
+        if ((uniqueId == null)) {
+            throw new IllegalArgumentException(
+                    "The unique id must not be null.");
+        }
+        this.fTestClass = testClass;
+        this.fDisplayName = displayName;
+        this.fUniqueId = uniqueId;
+        this.fAnnotations = annotations;
+    }
+
+    private static String formatDisplayName(String name, String className) {
+        return String.format("%s(%s)", name, className);
     }
 
     private String methodAndClassNamePatternGroupOrDefault(int group,
