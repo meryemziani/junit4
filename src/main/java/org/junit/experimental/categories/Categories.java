@@ -217,36 +217,37 @@ public class Categories extends Suite {
         }
 
         private boolean hasCorrectCategoryAnnotation(Description description) {
-            final Set<Class<?>> childCategories= categories(description);
+            final Set<Class<?>> childCategories = categories(description);
 
-            // If a child has no categories, immediately return.
             if (childCategories.isEmpty()) {
-                return included.isEmpty();
+                return checkEmptyChildCategories();
             }
 
             if (!excluded.isEmpty()) {
-                if (excludedAny) {
-                    if (matchesAnyParentCategories(childCategories, excluded)) {
-                        return false;
-                    }
-                } else {
-                    if (matchesAllParentCategories(childCategories, excluded)) {
-                        return false;
-                    }
+                if (excludedAny && matchesAnyParentCategories(childCategories, excluded)) {
+                    return false;
+                } else if (!excludedAny && matchesAllParentCategories(childCategories, excluded)) {
+                    return false;
                 }
             }
 
+            return checkIncludedCategories(childCategories);
+        }
+
+        private boolean checkEmptyChildCategories() {
+            return included.isEmpty();
+        }
+
+        private boolean checkIncludedCategories(Set<Class<?>> childCategories) {
             if (included.isEmpty()) {
-                // Couldn't be excluded, and with no suite's included categories treated as should run.
                 return true;
+            } else if (includedAny) {
+                return matchesAnyParentCategories(childCategories, included);
             } else {
-                if (includedAny) {
-                    return matchesAnyParentCategories(childCategories, included);
-                } else {
-                    return matchesAllParentCategories(childCategories, included);
-                }
+                return matchesAllParentCategories(childCategories, included);
             }
         }
+
 
         /**
          * @return <tt>true</tt> if at least one (any) parent category match a child, otherwise <tt>false</tt>.
