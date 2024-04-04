@@ -15,8 +15,6 @@
 3. [Grandes modifications](#historique-du-logiciel)
 4. [Développement](#architecture-logicielle)
 5. [Conclusion](#analyse-approfondie)
-6. [Nettoyage de Code et Code Smells](#nettoyage-de-code-et-code-smells)
-7. [Conclusion](#conclusion)
 
 ## Outils Utilisés
 - SonarQube
