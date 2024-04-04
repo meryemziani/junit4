@@ -1,9 +1,24 @@
-# JUnit 4
-JUnit is a simple framework to write repeatable tests. It is an instance of the xUnit architecture for unit testing frameworks.
+<p align="center">
+    <img src="Screens/logo.png" alt="Logo du Projet" />
+</p>
 
-For more information, please visit:
-* [Wiki](https://github.com/junit-team/junit4/wiki)
-* [Download and Install guide](https://github.com/junit-team/junit4/wiki/Download-and-Install)
-* [Getting Started](https://github.com/junit-team/junit4/wiki/Getting-started)
+# Amélioration du projet : JUnit 4 
 
-[![CI Status](https://github.com/junit-team/junit4/workflows/CI/badge.svg)](https://github.com/junit-team/junit4/actions)
+## Travail encadré par : Cyril FERLICOT
+
+### Travail fait par :
+- **ZIANI Meryem**
+
+## Table des Matières
+1. [Petites modifications](#outils-utilisés)
+2. [Moyennes modifications](#présentation-globale-du-projet)
+3. [Grandes modifications](#historique-du-logiciel)
+4. [Développement](#architecture-logicielle)
+5. [Conclusion](#analyse-approfondie)
+6. [Nettoyage de Code et Code Smells](#nettoyage-de-code-et-code-smells)
+7. [Conclusion](#conclusion)
+
+## Outils Utilisés
+- SonarQube
+- IntelliJ
+- Plugin Metrics Reloaded
