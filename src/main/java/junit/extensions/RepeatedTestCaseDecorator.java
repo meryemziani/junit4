@@ -6,10 +6,10 @@ import junit.framework.TestResult;
 /**
  * A Decorator that runs a test repeatedly.
  */
-public class RepeatedTest extends TestDecorator {
+public class RepeatedTestCaseDecorator extends TestDecorator {
     private int fTimesRepeat;
 
-    public RepeatedTest(Test test, int repeat) {
+    public RepeatedTestCaseDecorator(Test test, int repeat) {
         super(test);
         if (repeat < 0) {
             throw new IllegalArgumentException("Repetition count must be >= 0");

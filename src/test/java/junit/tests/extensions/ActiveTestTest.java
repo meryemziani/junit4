@@ -1,7 +1,7 @@
 package junit.tests.extensions;
 
 import junit.extensions.ActiveTestSuite;
-import junit.extensions.RepeatedTest;
+import junit.extensions.RepeatedTestCaseDecorator;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestResult;
@@ -27,7 +27,7 @@ public class ActiveTestTest extends TestCase {
     }
 
     public void testActiveRepeatedTest() {
-        Test test = new RepeatedTest(createActiveTestSuite(), 5);
+        Test test = new RepeatedTestCaseDecorator(createActiveTestSuite(), 5);
         TestResult result = new TestResult();
         test.run(result);
         assertEquals(500, result.runCount());
@@ -36,7 +36,7 @@ public class ActiveTestTest extends TestCase {
     }
 
     public void testActiveRepeatedTest0() {
-        Test test = new RepeatedTest(createActiveTestSuite(), 0);
+        Test test = new RepeatedTestCaseDecorator(createActiveTestSuite(), 0);
         TestResult result = new TestResult();
         test.run(result);
         assertEquals(0, result.runCount());
@@ -45,7 +45,7 @@ public class ActiveTestTest extends TestCase {
     }
 
     public void testActiveRepeatedTest1() {
-        Test test = new RepeatedTest(createActiveTestSuite(), 1);
+        Test test = new RepeatedTestCaseDecorator(createActiveTestSuite(), 1);
         TestResult result = new TestResult();
         test.run(result);
         assertEquals(100, result.runCount());
