@@ -62,7 +62,8 @@ import org.junit.validator.TestClassValidator;
  */
 public class BlockJUnit4ClassRunner extends ParentRunner<FrameworkMethod> {
     private static final TestClassValidator PUBLIC_CLASS_VALIDATOR = new PublicClassValidator();
-
+    private static final ThreadLocal<RuleContainer> CURRENT_RULE_CONTAINER =
+            new ThreadLocal<RuleContainer>();
     private final ConcurrentMap<FrameworkMethod, Description> methodDescriptions = new ConcurrentHashMap<FrameworkMethod, Description>();
 
     /**
@@ -74,6 +75,10 @@ public class BlockJUnit4ClassRunner extends ParentRunner<FrameworkMethod> {
         super(testClass);
     }
 
+    //
+    // Implementation of ParentRunner
+    //
+
     /**
      * Creates a BlockJUnit4ClassRunner to run {@code testClass}.
      *
@@ -83,10 +88,6 @@ public class BlockJUnit4ClassRunner extends ParentRunner<FrameworkMethod> {
     protected BlockJUnit4ClassRunner(TestClass testClass) throws InitializationError {
         super(testClass);
     }
-
-    //
-    // Implementation of ParentRunner
-    //
 
     @Override
     protected void runChild(final FrameworkMethod method, RunNotifier notifier) {
@@ -126,14 +127,14 @@ public class BlockJUnit4ClassRunner extends ParentRunner<FrameworkMethod> {
         return description;
     }
 
+    //
+    // Override in subclasses
+    //
+
     @Override
     protected List<FrameworkMethod> getChildren() {
         return computeTestMethods();
     }
-
-    //
-    // Override in subclasses
-    //
 
     /**
      * Returns the methods that run tests. Default implementation returns all
@@ -268,6 +269,10 @@ public class BlockJUnit4ClassRunner extends ParentRunner<FrameworkMethod> {
         return method.getName();
     }
 
+    //
+    // Statement builders
+    //
+
     /**
      * Returns a Statement that, when executed, either returns normally if
      * {@code method} passes, or throws an exception if {@code method} fails.
@@ -322,10 +327,6 @@ public class BlockJUnit4ClassRunner extends ParentRunner<FrameworkMethod> {
         statement = withInterruptIsolation(statement);
         return statement;
     }
-
-    //
-    // Statement builders
-    //
 
     /**
      * Returns a {@link Statement} that invokes {@code method} on {@code test}
@@ -452,9 +453,6 @@ public class BlockJUnit4ClassRunner extends ParentRunner<FrameworkMethod> {
         }
         return annotation.timeout();
     }
-
-    private static final ThreadLocal<RuleContainer> CURRENT_RULE_CONTAINER =
-            new ThreadLocal<RuleContainer>();
 
     private static class RuleCollector<T> implements MemberValueConsumer<T> {
         final List<T> result = new ArrayList<T>();

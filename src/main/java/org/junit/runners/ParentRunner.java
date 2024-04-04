@@ -49,6 +49,7 @@ import org.junit.runners.model.Statement;
 import org.junit.runners.model.TestClass;
 import org.junit.validator.AnnotationsValidator;
 import org.junit.validator.TestClassValidator;
+import org.junit.runners.RuleEntry;
 
 /**
  * Provides most of the functionality specific to a Runner that implements a
@@ -562,18 +563,18 @@ public abstract class ParentRunner<T> extends Runner implements Filterable,
     }
 
     private static class ClassRuleCollector implements MemberValueConsumer<TestRule> {
-        final List<RuleContainer.RuleEntry> entries = new ArrayList<RuleContainer.RuleEntry>();
+        final List<RuleEntry> entries = new ArrayList<RuleEntry>();
 
         public void accept(FrameworkMember<?> member, TestRule value) {
             ClassRule rule = member.getAnnotation(ClassRule.class);
-            entries.add(new RuleContainer.RuleEntry(value, RuleContainer.RuleEntry.TYPE_TEST_RULE,
+            entries.add(new RuleEntry(value, RuleEntry.TYPE_TEST_RULE,
                     rule != null ? rule.order() : null));
         }
 
         public List<TestRule> getOrderedRules() {
             Collections.sort(entries, RuleContainer.ENTRY_COMPARATOR);
             List<TestRule> result = new ArrayList<TestRule>(entries.size());
-            for (RuleContainer.RuleEntry entry : entries) {
+            for (RuleEntry entry : entries) {
                 result.add((TestRule) entry.rule);
             }
             return result;
