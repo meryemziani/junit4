@@ -2,6 +2,8 @@ package junit.samples.money;
 
 import junit.framework.TestCase;
 
+import static org.junit.Assert.assertNotEquals;
+
 public class MoneyTest extends TestCase {
     private Money f12CHF;
     private Money f14CHF;

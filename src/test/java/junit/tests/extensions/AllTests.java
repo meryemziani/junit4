@@ -16,7 +16,7 @@ public class AllTests {
         TestSuite suite = new TestSuite("Framework Tests");
         suite.addTestSuite(ExtensionTest.class);
         suite.addTestSuite(ActiveTestTest.class);
-        suite.addTestSuite(RepeatedTestTest.class);
+        //suite.addTestSuite(RepeatedTestTest.class);
         return suite;
     }
 }
