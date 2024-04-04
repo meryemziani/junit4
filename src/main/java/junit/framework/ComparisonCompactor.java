@@ -26,12 +26,12 @@ public class ComparisonCompactor {
 
         findCommonPrefix();
         findCommonSuffix();
-        String expected = compactString(fExpected);
-        String actual = compactString(fActual);
+        String expected = compactifyString(fExpected);
+        String actual = compactifyString(fActual);
         return Assert.format(message, expected, actual);
     }
 
-    private String compactString(String source) {
+    private String compactifyString(String source) {
         String result = DELTA_START + source.substring(fPrefix, source.length() - fSuffix + 1) + DELTA_END;
         if (fPrefix > 0) {
             result = computeCommonPrefix() + result;
