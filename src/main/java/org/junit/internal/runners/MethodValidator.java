@@ -24,6 +24,7 @@ public class MethodValidator {
     private final List<Throwable> errors = new ArrayList<Throwable>();
 
     private final TestClass testClass;
+    private static final String METHOD = "Method";
 
     public MethodValidator(TestClass testClass) {
         this.testClass = testClass;
@@ -68,12 +69,13 @@ public class MethodValidator {
 
     private void validateTestMethods(Class<? extends Annotation> annotation,
             boolean isStatic) {
+
         List<Method> methods = testClass.getAnnotatedMethods(annotation);
 
         for (Method each : methods) {
             if (Modifier.isStatic(each.getModifiers()) != isStatic) {
                 String state = isStatic ? "should" : "should not";
-                errors.add(new Exception("Method " + each.getName() + "() "
+                errors.add(new Exception(METHOD + each.getName() + "() "
 						+ state + " be static"));
             }
             if (!Modifier.isPublic(each.getDeclaringClass().getModifiers())) {
@@ -81,15 +83,15 @@ public class MethodValidator {
 						+ " should be public"));
             }
             if (!Modifier.isPublic(each.getModifiers())) {
-                errors.add(new Exception("Method " + each.getName()
+                errors.add(new Exception(METHOD + each.getName()
 						+ " should be public"));
             }
             if (each.getReturnType() != Void.TYPE) {
-                errors.add(new Exception("Method " + each.getName()
+                errors.add(new Exception(METHOD + each.getName()
 						+ "should have a return type of void"));
             }
             if (each.getParameterTypes().length != 0) {
-                errors.add(new Exception("Method " + each.getName()
+                errors.add(new Exception(METHOD + each.getName()
 						+ " should have no parameters"));
             }
         }
