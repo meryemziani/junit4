@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="Screen/logo.png" alt="Logo du Projet" />
+    <img src="screen/logo.png" alt="Logo du Projet" />
 </p>
 
 # Amélioration du projet : JUnit 4 
