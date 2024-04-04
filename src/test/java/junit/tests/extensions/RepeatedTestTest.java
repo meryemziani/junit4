@@ -9,7 +9,7 @@ import junit.framework.TestSuite;
  * Testing the RepeatedTestCaseDecorator support.
  */
 public class RepeatedTestCaseDecorator extends TestCase {
-    private TestSuite fSuite;
+    private final TestSuite fSuite;
 
     public static class SuccessTest extends TestCase {
 

@@ -262,7 +262,7 @@ public class MethodRulesTest {
 
     public static class PrivateRule {
         @Rule
-        private TestRule rule = new TestName();
+        private final TestRule rule = new TestName();
 
         @Test
         public void foo() {
@@ -305,7 +305,7 @@ public class MethodRulesTest {
     }
     
     public static class HasMethodReturningMethodRule {
-        private MethodRule methodRule = new MethodRule() {
+        private final MethodRule methodRule = new MethodRule() {
             public Statement apply(final Statement base, FrameworkMethod method, Object target) {
                 return new Statement() {
                     

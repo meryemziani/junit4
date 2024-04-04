@@ -9,7 +9,7 @@ import org.junit.experimental.theories.PotentialAssignment;
 
 public class EnumSupplier extends ParameterSupplier {
 
-    private Class<?> enumType;
+    private final Class<?> enumType;
 
     public EnumSupplier(Class<?> enumType) {
         this.enumType = enumType;

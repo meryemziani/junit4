@@ -28,7 +28,7 @@ public class StubbedTheories extends Theories {
             super(method, testClass);
         }
 
-        private List<GuesserQueue> queues = new ArrayList<GuesserQueue>();
+        private final List<GuesserQueue> queues = new ArrayList<GuesserQueue>();
 
         @Override
         protected void handleAssumptionViolation(AssumptionViolatedException e) {

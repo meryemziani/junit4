@@ -102,7 +102,7 @@ public class MultipleFailureExceptionTest {
             assertTrue(expected.getMessage().contains("RuntimeException(garlic)"));
             Throwable first = expected.getFailures().get(0);
             assertThat(first, instanceOf(TestCouldNotBeSkippedException.class));
-            Throwable cause = ((TestCouldNotBeSkippedException) first).getCause();
+            Throwable cause = first.getCause();
             assertThat(cause, instanceOf(AssumptionViolatedException.class));
             assertThat((AssumptionViolatedException) cause, CoreMatchers.sameInstance(assumptionViolatedException));
         }

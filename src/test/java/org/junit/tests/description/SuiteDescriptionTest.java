@@ -1,10 +1,9 @@
 package org.junit.tests.description;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-
 import org.junit.Test;
 import org.junit.runner.Description;
+
+import static org.junit.Assert.*;
 
 public class SuiteDescriptionTest {
     Description childless = Description.createSuiteDescription("a");
@@ -17,16 +16,16 @@ public class SuiteDescriptionTest {
     @Test
     public void equalsIsCorrect() {
         assertEquals(childless, anotherChildless);
-        assertFalse(childless.equals(namedB));
+        assertNotEquals(childless, namedB);
         assertEquals(childless, twoKids);
         assertEquals(twoKids, anotherTwoKids);
-        assertFalse(twoKids.equals(Integer.valueOf(5)));
+        assertNotEquals(twoKids, Integer.valueOf(5));
     }
 
     @Test
     public void hashCodeIsReasonable() {
         assertEquals(childless.hashCode(), anotherChildless.hashCode());
-        assertFalse(childless.hashCode() == namedB.hashCode());
+        assertNotEquals(childless.hashCode(), namedB.hashCode());
     }
 
     private Description descriptionWithTwoKids(String first, String second) {

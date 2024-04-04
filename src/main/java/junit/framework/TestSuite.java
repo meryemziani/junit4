@@ -56,12 +56,12 @@ public class TestSuite implements Test {
         Object test;
         try {
             if (constructor.getParameterTypes().length == 0) {
-                test = constructor.newInstance(new Object[0]);
+                test = constructor.newInstance();
                 if (test instanceof TestCase) {
                     ((TestCase) test).setName(name);
                 }
             } else {
-                test = constructor.newInstance(new Object[]{name});
+                test = constructor.newInstance(name);
             }
         } catch (InstantiationException e) {
             return (warning("Cannot instantiate test case: " + name + " (" + Throwables.getStacktrace(e) + ")"));
@@ -100,7 +100,7 @@ public class TestSuite implements Test {
 
     private String fName;
 
-    private Vector<Test> fTests = new Vector<Test>(10); // Cannot convert this to List because it is used directly by some test runners
+    private final Vector<Test> fTests = new Vector<Test>(10); // Cannot convert this to List because it is used directly by some test runners
 
     /**
      * Constructs an empty TestSuite.

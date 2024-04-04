@@ -166,7 +166,7 @@ public class TimeoutTest {
     public static class InfiniteLoopMultithreaded {
         
         private static class ThreadTest implements Runnable {
-            private boolean fStall;
+            private final boolean fStall;
 
             public ThreadTest(boolean stall) {
                 fStall = stall;
@@ -229,7 +229,7 @@ public class TimeoutTest {
         Result result = core.run(InfiniteLoopWithStuckThreadTest.class);
         assertEquals(1, result.getRunCount());
         assertEquals(2, result.getFailureCount());
-        Throwable exception[] = new Throwable[2];
+        Throwable[] exception = new Throwable[2];
         for (int i = 0; i < 2; i++)
             exception[i] = result.getFailures().get(i).getException();
         assertThat(exception[0].getMessage(), containsString("test timed out after 100 milliseconds"));

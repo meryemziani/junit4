@@ -7,7 +7,7 @@ public class ComparisonCompactorTest extends TestCase {
 
     public void testMessage() {
         String failure = new ComparisonCompactor(0, "b", "c").compact("a");
-        assertTrue("a expected:<[b]> but was:<[c]>".equals(failure));
+        assertEquals("a expected:<[b]> but was:<[c]>", failure);
     }
 
     public void testStartSame() {

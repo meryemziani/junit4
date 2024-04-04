@@ -6,6 +6,7 @@ import static org.junit.Assert.assertArrayEquals;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import org.junit.FixMethodOrder;
@@ -78,14 +79,14 @@ public class MethodSorterTest {
     
     @Test
     public void testMethodsNullSorterSuper() {
-        List<String> expected = Arrays.asList(SUPER_METHOD);
+        List<String> expected = Collections.singletonList(SUPER_METHOD);
         List<String> actual = getDeclaredMethodNames(Super.class);
         assertEquals(expected, actual);
     }
     
     @Test
     public void testMethodsNullSorterSub() {
-        List<String> expected = Arrays.asList(SUB_METHOD);
+        List<String> expected = Collections.singletonList(SUB_METHOD);
         List<String> actual = getDeclaredMethodNames(Sub.class);
         assertEquals(expected, actual);
     }

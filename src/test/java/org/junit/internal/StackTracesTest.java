@@ -326,7 +326,7 @@ public class StackTracesTest {
         } else if (index < matchers.length) {
             StringDescription description = new StringDescription();
             matchers[index].describeTo(description);
-            fail("Missing line in trimmed trace: " + description.toString());
+            fail("Missing line in trimmed trace: " + description);
         }
     }
 }

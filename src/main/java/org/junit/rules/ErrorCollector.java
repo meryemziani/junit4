@@ -35,7 +35,7 @@ import org.junit.runners.model.MultipleFailureException;
  * @since 4.7
  */
 public class ErrorCollector extends Verifier {
-    private List<Throwable> errors = new ArrayList<Throwable>();
+    private final List<Throwable> errors = new ArrayList<Throwable>();
 
     @Override
     protected void verify() throws Throwable {
@@ -50,8 +50,7 @@ public class ErrorCollector extends Verifier {
             throw new NullPointerException("Error cannot be null");
         }
         if (error instanceof AssumptionViolatedException) {
-            AssertionError e = new AssertionError(error.getMessage());
-            e.initCause(error);
+            AssertionError e = new AssertionError(error.getMessage(), error);
             errors.add(e);
         } else {
             errors.add(error);
@@ -89,8 +88,7 @@ public class ErrorCollector extends Verifier {
         try {
             return callable.call();
         } catch (AssumptionViolatedException e) {
-            AssertionError error = new AssertionError("Callable threw AssumptionViolatedException");
-            error.initCause(e);
+            AssertionError error = new AssertionError("Callable threw AssumptionViolatedException", e);
             addError(error);
             return null;
         } catch (Throwable e) {

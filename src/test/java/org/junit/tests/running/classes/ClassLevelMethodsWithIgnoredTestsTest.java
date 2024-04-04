@@ -150,7 +150,7 @@ public class ClassLevelMethodsWithIgnoredTestsTest {
 
     private void analyseResult(Result result, String testFailureDescription) {
         List<Failure> failures = result.getFailures();
-        if (failures.isEmpty() == false) {
+        if (!failures.isEmpty()) {
             analyzeFailure(failures.get(0), testFailureDescription);
         }
     }

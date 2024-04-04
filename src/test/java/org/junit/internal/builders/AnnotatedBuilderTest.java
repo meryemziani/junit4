@@ -12,7 +12,7 @@ import org.junit.runners.model.RunnerBuilder;
 import org.junit.runners.model.RunnerBuilderStub;
 
 public class AnnotatedBuilderTest {
-    private AnnotatedBuilder builder = new AnnotatedBuilder(new RunnerBuilderStub());
+    private final AnnotatedBuilder builder = new AnnotatedBuilder(new RunnerBuilderStub());
 
     @Test
     public void topLevelTestClassWithoutAnnotation_isRunWithDefaultRunner() throws Exception {

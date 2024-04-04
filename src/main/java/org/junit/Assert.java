@@ -62,7 +62,7 @@ public class Assert {
      * @param condition condition to be checked
      */
     public static void assertFalse(String message, boolean condition) {
-        assertTrue(message, !condition);
+        assertFalse(message, condition);
     }
 
     /**
@@ -604,22 +604,14 @@ public class Assert {
         if (Double.compare(d1, d2) == 0) {
             return false;
         }
-        if ((Math.abs(d1 - d2) <= delta)) {
-            return false;
-        }
-
-        return true;
+        return !(Math.abs(d1 - d2) <= delta);
     }
 
     private static boolean floatIsDifferent(float f1, float f2, float delta) {
         if (Float.compare(f1, f2) == 0) {
             return false;
         }
-        if ((Math.abs(f1 - f2) <= delta)) {
-            return false;
-        }
-
-        return true;
+        return !(Math.abs(f1 - f2) <= delta);
     }
 
     /**
@@ -710,7 +702,7 @@ public class Assert {
      * @param object Object to check or <code>null</code>
      */
     public static void assertNotNull(String message, Object object) {
-        assertTrue(message, object != null);
+        assertNotNull(message, object);
     }
 
     /**
@@ -1017,8 +1009,7 @@ public class Assert {
                         + format("unexpected exception type thrown;", expected, actual);
 
                 // The AssertionError(String, Throwable) ctor is only available on JDK7.
-                AssertionError assertionError = new AssertionError(mismatchMessage);
-                assertionError.initCause(actualThrown);
+                AssertionError assertionError = new AssertionError(mismatchMessage, actualThrown);
                 throw assertionError;
             }
         }

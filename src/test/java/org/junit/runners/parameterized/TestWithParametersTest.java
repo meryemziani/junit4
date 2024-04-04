@@ -6,6 +6,7 @@ import static org.junit.Assert.assertNotEquals;
 import static org.junit.rules.ExpectedException.none;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import org.junit.Rule;
@@ -44,7 +45,7 @@ public class TestWithParametersTest {
         thrown.expect(NullPointerException.class);
         thrown.expectMessage("The parameters are missing.");
         new TestWithParameters(DUMMY_NAME, DUMMY_TEST_CLASS,
-                (List<Object>) null);
+                null);
     }
 
     @Test
@@ -57,11 +58,11 @@ public class TestWithParametersTest {
 
     @Test
     public void doesNotConsiderParametersWhichChangedAfterTestInstantiation() {
-        List<Object> parameters = Arrays.<Object> asList("dummy parameter");
+        List<Object> parameters = Collections.<Object>singletonList("dummy parameter");
         TestWithParameters test = new TestWithParameters(DUMMY_NAME,
                 DUMMY_TEST_CLASS, parameters);
         parameters.set(0, "another parameter");
-        assertEquals(asList("dummy parameter"), test.getParameters());
+        assertEquals(Collections.singletonList("dummy parameter"), test.getParameters());
     }
 
     @Test
@@ -96,9 +97,9 @@ public class TestWithParametersTest {
     @Test
     public void isNotEqualToTestWithDifferentParameters() {
         TestWithParameters firstTest = new TestWithParameters(DUMMY_NAME,
-                DUMMY_TEST_CLASS, Arrays.<Object> asList("a"));
+                DUMMY_TEST_CLASS, Collections.<Object>singletonList("a"));
         TestWithParameters secondTest = new TestWithParameters(DUMMY_NAME,
-                DUMMY_TEST_CLASS, Arrays.<Object> asList("b"));
+                DUMMY_TEST_CLASS, Collections.<Object>singletonList("b"));
         assertNotEquals(firstTest, secondTest);
     }
 

@@ -87,7 +87,7 @@ public @interface Test {
     /**
      * Default empty exception.
      */
-    static class None extends Throwable {
+    class None extends Throwable {
         private static final long serialVersionUID = 1L;
 
         private None() {

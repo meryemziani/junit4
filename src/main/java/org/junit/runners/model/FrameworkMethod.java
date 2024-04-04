@@ -164,7 +164,7 @@ public class FrameworkMethod extends FrameworkMember<FrameworkMethod> {
 
     @Override
     public boolean equals(Object obj) {
-        if (!FrameworkMethod.class.isInstance(obj)) {
+        if (!(obj instanceof FrameworkMethod)) {
             return false;
         }
         return ((FrameworkMethod) obj).method.equals(method);

@@ -62,7 +62,7 @@ public class AssertTest extends TestCase {
     }
 
     public void testAssertEqualsNull() {
-        assertEquals((Object) null, (Object) null);
+        assertEquals(null, (Object) null);
     }
 
     public void testAssertStringEquals() {
@@ -71,7 +71,7 @@ public class AssertTest extends TestCase {
 
     public void testAssertNullNotEqualsString() {
         try {
-            assertEquals(null, "foo");
+            assertNull("foo");
             fail();
         } catch (ComparisonFailure e) {
         }
@@ -79,7 +79,7 @@ public class AssertTest extends TestCase {
 
     public void testAssertStringNotEqualsNull() {
         try {
-            assertEquals("foo", null);
+            assertNull("foo");
             fail();
         } catch (ComparisonFailure e) {
             assertNotNull(e.getMessage());
@@ -88,7 +88,7 @@ public class AssertTest extends TestCase {
 
     public void testAssertNullNotEqualsNull() {
         try {
-            assertEquals(null, new Object());
+            assertNull(new Object());
         } catch (AssertionFailedError e) {
             assertNotNull(e.getMessage());
             return;
@@ -119,7 +119,7 @@ public class AssertTest extends TestCase {
     public void testAssertTrue() {
         assertTrue(true);
         try {
-            assertTrue(false);
+            fail();
         } catch (AssertionFailedError e) {
             return;
         }
@@ -129,7 +129,7 @@ public class AssertTest extends TestCase {
     public void testAssertFalse() {
         assertFalse(false);
         try {
-            assertFalse(true);
+            fail();
         } catch (AssertionFailedError e) {
             return;
         }

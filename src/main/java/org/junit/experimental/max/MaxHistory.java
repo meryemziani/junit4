@@ -107,9 +107,9 @@ public class MaxHistory implements Serializable {
     }
 
     private final class RememberingListener extends RunListener {
-        private long overallStart = System.currentTimeMillis();
+        private final long overallStart = System.currentTimeMillis();
 
-        private Map<Description, Long> starts = new HashMap<Description, Long>();
+        private final Map<Description, Long> starts = new HashMap<Description, Long>();
 
         @Override
         public void testStarted(Description description) throws Exception {

@@ -7,9 +7,9 @@ import java.io.PrintStream;
 import org.junit.internal.JUnitSystem;
 
 public class TestSystem implements JUnitSystem {
-    private PrintStream out;
+    private final PrintStream out;
     public int fCode;
-    private ByteArrayOutputStream fOutContents;
+    private final ByteArrayOutputStream fOutContents;
 
     public TestSystem() {
         fOutContents = new ByteArrayOutputStream();

@@ -5,6 +5,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assume.assumeThat;
 
 import org.junit.Test;
@@ -80,7 +81,7 @@ public class ParameterizedAssertionErrorTest {
 
     @Theory
     public void isNotEqualToNull(ParameterizedAssertionError a) {
-        assertFalse(a.equals(null));
+        assertNotEquals(null, a);
     }
 
     @Test

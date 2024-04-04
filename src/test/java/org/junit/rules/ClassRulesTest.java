@@ -112,7 +112,7 @@ public class ClassRulesTest {
     private static final List<String> orderList = new LinkedList<String>();
 
     private static class OrderTestRule implements TestRule {
-        private String name;
+        private final String name;
 
         public OrderTestRule(String name) {
             this.name = name;
@@ -153,7 +153,7 @@ public class ClassRulesTest {
 
 
     public static class MethodExampleTestWithClassRule {
-        private static Counter counter = new Counter();
+        private static final Counter counter = new Counter();
 
         @ClassRule
         public static Counter getCounter() {
@@ -191,7 +191,7 @@ public class ClassRulesTest {
     }
 
     public static class MethodExampleTestWithCustomClassRule {
-        private static CustomCounter counter = new CustomCounter();
+        private static final CustomCounter counter = new CustomCounter();
 
         @ClassRule
         public static CustomCounter getCounter() {

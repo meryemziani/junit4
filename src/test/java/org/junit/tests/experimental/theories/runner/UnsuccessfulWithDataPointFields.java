@@ -119,7 +119,7 @@ public class UnsuccessfulWithDataPointFields {
     public void dataPointFieldsMustBeStatic() {
         assertThat(
                 testResult(DataPointFieldsMustBeStatic.class),
-                CoreMatchers.<PrintableResult>both(hasFailureContaining("DataPoint field THREE must be static"))
+                CoreMatchers.both(hasFailureContaining("DataPoint field THREE must be static"))
                         .and(hasFailureContaining("DataPoint field FOURS must be static")));
     }
     
@@ -145,7 +145,7 @@ public class UnsuccessfulWithDataPointFields {
     public void dataPointMethodsMustBeStatic() {
         assertThat(
                 testResult(DataPointMethodsMustBeStatic.class),
-                CoreMatchers.<PrintableResult>both(
+                CoreMatchers.both(
                         hasFailureContaining("DataPoint method singleDataPointMethod must be static"))
                 .and(
                         hasFailureContaining("DataPoint method dataPointArrayMethod must be static")));
@@ -166,10 +166,10 @@ public class UnsuccessfulWithDataPointFields {
         protected static int[] FOURS = new int[] { 4 };
 
         @DataPoint
-        private static int FIVE = 5;
+        private static final int FIVE = 5;
         
         @DataPoints
-        private static int[] FIVES = new int[] { 5 };
+        private static final int[] FIVES = new int[] { 5 };
 
         @Theory
         public void numbers(int x) {

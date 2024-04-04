@@ -45,7 +45,7 @@ public class ManagementFactory {
     private static final RuntimeMXBean RUNTIME_MX_BEAN =
         getBean(FactoryHolder.getBeanObject("getRuntimeMXBean"));
 
-    private static final RuntimeMXBean getBean(Object runtimeMxBean) {
+    private static RuntimeMXBean getBean(Object runtimeMxBean) {
       return runtimeMxBean != null
           ? new ReflectiveRuntimeMXBean(runtimeMxBean) : new FakeRuntimeMXBean();
     }
@@ -55,7 +55,7 @@ public class ManagementFactory {
     private static final ThreadMXBean THREAD_MX_BEAN =
         getBean(FactoryHolder.getBeanObject("getThreadMXBean"));
 
-    private static final ThreadMXBean getBean(Object threadMxBean) {
+    private static ThreadMXBean getBean(Object threadMxBean) {
       return threadMxBean != null
           ? new ReflectiveThreadMXBean(threadMxBean) : new FakeThreadMXBean();
     }

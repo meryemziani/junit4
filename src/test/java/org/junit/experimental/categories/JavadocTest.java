@@ -17,9 +17,9 @@ import org.junit.runners.Suite;
  * @since 4.12
  */
 public class JavadocTest {
-    public static interface FastTests {}
-    public static interface SlowTests {}
-    public static interface SmokeTests {}
+    public interface FastTests {}
+    public interface SlowTests {}
+    public interface SmokeTests {}
 
     public static class A {
         public void a() {

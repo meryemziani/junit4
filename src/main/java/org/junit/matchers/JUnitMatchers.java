@@ -28,7 +28,7 @@ public class JUnitMatchers {
      */
     @Deprecated
     public static <T> Matcher<Iterable<? super T>> hasItem(Matcher<? super T> elementMatcher) {
-        return CoreMatchers.<T>hasItem(elementMatcher);
+        return CoreMatchers.hasItem(elementMatcher);
     }
 
     /**

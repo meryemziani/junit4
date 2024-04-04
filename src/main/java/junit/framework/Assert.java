@@ -36,7 +36,7 @@ public class Assert {
      * an AssertionFailedError with the given message.
      */
     public static void assertFalse(String message, boolean condition) {
-        assertTrue(message, !condition);
+        assertFalse(message, condition);
     }
 
     /**
@@ -253,7 +253,7 @@ public class Assert {
      * an AssertionFailedError is thrown with the given message.
      */
     public static void assertNotNull(String message, Object object) {
-        assertTrue(message, object != null);
+        assertNotNull(message, object);
     }
 
     /**
@@ -265,7 +265,7 @@ public class Assert {
      */
     public static void assertNull(Object object) {
         if (object != null) {
-            assertNull("Expected: <null> but was: " + object.toString(), object);
+            assertNull("Expected: <null> but was: " + object, object);
         }
     }
 
@@ -274,7 +274,7 @@ public class Assert {
      * an AssertionFailedError is thrown with the given message.
      */
     public static void assertNull(String message, Object object) {
-        assertTrue(message, object == null);
+        assertNull(message, object);
     }
 
     /**

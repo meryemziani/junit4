@@ -10,5 +10,5 @@ public interface Protectable {
     /**
      * Run the following method protected.
      */
-    public abstract void protect() throws Throwable;
+    void protect() throws Throwable;
 }

@@ -93,7 +93,7 @@ public class JUnit38ClassRunnerTest {
 
     @Retention(RetentionPolicy.RUNTIME)
     @Target(ElementType.METHOD)
-    public static @interface MyAnnotation {
+    public @interface MyAnnotation {
     }
 
     public static class JUnit3ClassWithAnnotatedMethod extends TestCase {

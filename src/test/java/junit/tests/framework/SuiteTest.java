@@ -52,23 +52,23 @@ public class SuiteTest extends TestCase {
         Test t = new TestSuite(NoTestCaseClass.class);
         t.run(fResult);
         assertEquals(1, fResult.runCount());  // warning test
-        assertTrue(!fResult.wasSuccessful());
+        assertFalse(fResult.wasSuccessful());
     }
 
     public void testNoTestCases() {
         Test t = new TestSuite(NoTestCases.class);
         t.run(fResult);
-        assertTrue(fResult.runCount() == 1);  // warning test
-        assertTrue(fResult.failureCount() == 1);
-        assertTrue(!fResult.wasSuccessful());
+        assertEquals(1, fResult.runCount());  // warning test
+        assertEquals(1, fResult.failureCount());
+        assertFalse(fResult.wasSuccessful());
     }
 
     public void testNotExistingTestCase() {
         Test t = new SuiteTest("notExistingMethod");
         t.run(fResult);
-        assertTrue(fResult.runCount() == 1);
-        assertTrue(fResult.failureCount() == 1);
-        assertTrue(fResult.errorCount() == 0);
+        assertEquals(1, fResult.runCount());
+        assertEquals(1, fResult.failureCount());
+        assertEquals(0, fResult.errorCount());
     }
 
     public void testNotPublicTestCase() {
@@ -79,15 +79,15 @@ public class SuiteTest extends TestCase {
 
     public void testNotVoidTestCase() {
         TestSuite suite = new TestSuite(NotVoidTestCase.class);
-        assertTrue(suite.countTestCases() == 1);
+        assertEquals(1, suite.countTestCases());
     }
 
     public void testOneTestCase() {
         TestSuite t = new TestSuite(OneTestCase.class);
         t.run(fResult);
-        assertTrue(fResult.runCount() == 1);
-        assertTrue(fResult.failureCount() == 0);
-        assertTrue(fResult.errorCount() == 0);
+        assertEquals(1, fResult.runCount());
+        assertEquals(0, fResult.failureCount());
+        assertEquals(0, fResult.errorCount());
         assertTrue(fResult.wasSuccessful());
     }
 

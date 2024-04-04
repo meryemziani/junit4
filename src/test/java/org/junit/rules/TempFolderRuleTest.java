@@ -27,7 +27,7 @@ import org.junit.Rule;
 import org.junit.Test;
 
 public class TempFolderRuleTest {
-    private static File[] createdFiles = new File[20];
+    private static final File[] createdFiles = new File[20];
 
     public static class HasTempFolder {
         @Rule
@@ -63,7 +63,7 @@ public class TempFolderRuleTest {
             String filename = "a.txt";
             // force usage of folder.newFolder(String),
             // check is available and works, to avoid a potential NoSuchMethodError with non-recompiled code.
-            Method method = folder.getClass().getMethod("newFolder", new Class<?>[]{String.class});
+            Method method = folder.getClass().getMethod("newFolder", String.class);
             createdFiles[0] = (File) method.invoke(folder, subfolder);
             new File(createdFiles[0], filename).createNewFile();
 

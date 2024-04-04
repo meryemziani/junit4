@@ -107,17 +107,17 @@ public class SynchronizedRunListenerTest {
         NamedListener listener2 = new NamedListener("blue");
         NamedListener listener3 = new NamedListener("red");
 
-        assertTrue(listener1.equals(listener1));
-        assertTrue(listener2.equals(listener2));
-        assertTrue(listener3.equals(listener3));
+        assertEquals(listener1, listener1);
+        assertEquals(listener2, listener2);
+        assertEquals(listener3, listener3);
 
-        assertFalse(listener1.equals(null));
-        assertFalse(listener1.equals(new Object()));
+        assertNotEquals(null, listener1);
+        assertNotEquals(listener1, new Object());
 
-        assertTrue(listener1.equals(listener2));
-        assertTrue(listener2.equals(listener1));
-        assertFalse(listener1.equals(listener3));
-        assertFalse(listener3.equals(listener1));
+        assertEquals(listener1, listener2);
+        assertEquals(listener2, listener1);
+        assertNotEquals(listener1, listener3);
+        assertNotEquals(listener3, listener1);
 
         assertEquals(listener1.hashCode(), listener2.hashCode());
         assertNotEquals(listener1.hashCode(), listener3.hashCode());

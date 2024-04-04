@@ -15,7 +15,7 @@ import org.junit.internal.MethodSorter;
 @Deprecated
 public abstract class TypeSafeMatcher<T> extends BaseMatcher<T> {
 
-    private Class<?> expectedType;
+    private final Class<?> expectedType;
 
     /**
      * Subclasses should implement this. The item will already have been checked for
@@ -56,8 +56,7 @@ public abstract class TypeSafeMatcher<T> extends BaseMatcher<T> {
      */
     @SuppressWarnings({"unchecked"})
     public final boolean matches(Object item) {
-        return item != null
-                && expectedType.isInstance(item)
+        return expectedType.isInstance(item)
                 && matchesSafely((T) item);
     }
 }

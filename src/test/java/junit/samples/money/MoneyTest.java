@@ -11,7 +11,7 @@ public class MoneyTest extends TestCase {
     private IMoney fMB1;
     private IMoney fMB2;
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         junit.textui.TestRunner.run(MoneyTest.class);
     }
 
@@ -71,18 +71,18 @@ public class MoneyTest extends TestCase {
 
     public void testBagNotEquals() {
         IMoney bag = MoneyBag.create(f12CHF, f7USD);
-        assertFalse(bag.equals(new Money(12, "DEM").add(f7USD)));
+        assertNotEquals(bag, new Money(12, "DEM").add(f7USD));
     }
 
     public void testMoneyBagEquals() {
-        assertTrue(!fMB1.equals(null));
+        assertFalse(fMB1.equals(null));
 
         assertEquals(fMB1, fMB1);
         IMoney equal = MoneyBag.create(new Money(12, "CHF"), new Money(7, "USD"));
-        assertTrue(fMB1.equals(equal));
-        assertTrue(!fMB1.equals(f12CHF));
-        assertTrue(!f12CHF.equals(fMB1));
-        assertTrue(!fMB1.equals(fMB2));
+        assertEquals(fMB1, equal);
+        assertFalse(fMB1.equals(f12CHF));
+        assertFalse(f12CHF.equals(fMB1));
+        assertFalse(fMB1.equals(fMB2));
     }
 
     public void testMoneyBagHash() {
@@ -91,16 +91,16 @@ public class MoneyTest extends TestCase {
     }
 
     public void testMoneyEquals() {
-        assertTrue(!f12CHF.equals(null));
+        assertFalse(f12CHF.equals(null));
         Money equalMoney = new Money(12, "CHF");
         assertEquals(f12CHF, f12CHF);
         assertEquals(f12CHF, equalMoney);
         assertEquals(f12CHF.hashCode(), equalMoney.hashCode());
-        assertTrue(!f12CHF.equals(f14CHF));
+        assertFalse(f12CHF.equals(f14CHF));
     }
 
     public void testMoneyHash() {
-        assertTrue(!f12CHF.equals(null));
+        assertFalse(f12CHF.equals(null));
         Money equal = new Money(12, "CHF");
         assertEquals(f12CHF.hashCode(), equal.hashCode());
     }

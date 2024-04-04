@@ -1,24 +1,23 @@
 package org.junit.tests.description;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
 import org.junit.Test;
 import org.junit.runner.Description;
+
+import static org.junit.Assert.*;
 
 public class TestDescriptionTest {
     @Test
     public void equalsIsFalseForNonTestDescription() {
-        assertFalse(Description.createTestDescription(getClass(), "a").equals(Integer.valueOf(5)));
+        assertNotEquals(Description.createTestDescription(getClass(), "a"), Integer.valueOf(5));
     }
 
     @Test
     public void equalsIsTrueForSameNameAndNoExplicitUniqueId() {
-        assertTrue(Description.createSuiteDescription("Hello").equals(Description.createSuiteDescription("Hello")));
+        assertEquals(Description.createSuiteDescription("Hello"), Description.createSuiteDescription("Hello"));
     }
 
     @Test
     public void equalsIsFalseForSameNameAndDifferentUniqueId() {
-        assertFalse(Description.createSuiteDescription("Hello", 2).equals(Description.createSuiteDescription("Hello", 3)));
+        assertNotEquals(Description.createSuiteDescription("Hello", 2), Description.createSuiteDescription("Hello", 3));
     }
 }

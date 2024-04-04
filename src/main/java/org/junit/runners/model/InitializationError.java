@@ -1,6 +1,7 @@
 package org.junit.runners.model;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -27,7 +28,7 @@ public class InitializationError extends Exception {
     }
 
     public InitializationError(Throwable error) {
-        this(Arrays.asList(error));
+        this(Collections.singletonList(error));
     }
 
     /**

@@ -46,11 +46,11 @@ public class ParameterizedTestTest {
                     { 3, 2, 5 }, { 4, 3, 7 } });
         }
 
-        private int firstSummand;
+        private final int firstSummand;
 
-        private int secondSummand;
+        private final int secondSummand;
 
-        private int sum;
+        private final int sum;
 
         public AdditionTest(int firstSummand, int secondSummand, int sum) {
             this.firstSummand = firstSummand;
@@ -713,7 +713,7 @@ public class ParameterizedTestTest {
     public static class TestWithUseParametersRunnerFactoryAnnotation {
         @Parameters
         public static Iterable<? extends Object> data() {
-            return asList("single test");
+            return Collections.singletonList("single test");
         }
 
         public TestWithUseParametersRunnerFactoryAnnotation(Object argument) {
@@ -742,7 +742,7 @@ public class ParameterizedTestTest {
     public abstract static class UseParameterizedFactoryAbstractTest {
         @Parameters
         public static Iterable<? extends Object> data() {
-            return asList("single test");
+            return Collections.singletonList("single test");
         }
     }
     

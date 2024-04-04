@@ -1,9 +1,6 @@
 package junit.framework;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 import org.junit.runner.Description;
 import org.junit.runner.notification.Failure;
@@ -41,7 +38,7 @@ public class JUnit4TestAdapterCache extends HashMap<Description, Test> {
         }
     }
 
-    public RunNotifier getNotifier(final TestResult result, final JUnit4TestAdapter adapter) {
+    public RunNotifier getNotifier(final TestResult result) {
         RunNotifier notifier = new RunNotifier();
         notifier.addListener(new RunListener() {
             @Override
@@ -64,7 +61,7 @@ public class JUnit4TestAdapterCache extends HashMap<Description, Test> {
 
     public List<Test> asTestList(Description description) {
         if (description.isTest()) {
-            return Arrays.asList(asTest(description));
+            return Collections.singletonList(asTest(description));
         } else {
             List<Test> returnThis = new ArrayList<Test>();
             for (Description child : description.getChildren()) {

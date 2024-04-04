@@ -157,7 +157,7 @@ public class TemporaryFolder extends ExternalResource {
         File file = new File(getRoot(), fileName);
         if (!file.createNewFile()) {
             throw new IOException(
-                    "a file with the name \'" + fileName + "\' already exists in the test folder");
+                    "a file with the name '" + fileName + "' already exists in the test folder");
         }
         return file;
     }
@@ -196,7 +196,7 @@ public class TemporaryFolder extends ExternalResource {
         File root = getRoot();
         for (String path : paths) {
             if (new File(path).isAbsolute()) {
-                throw new IOException("folder path \'" + path + "\' is not a relative path");
+                throw new IOException("folder path '" + path + "' is not a relative path");
             }
         }
 
@@ -211,16 +211,16 @@ public class TemporaryFolder extends ExternalResource {
             if (!lastMkdirsCallSuccessful && !file.isDirectory()) {
                 if (file.exists()) {
                     throw new IOException(
-                            "a file with the path \'" + relativePath.getPath() + "\' exists");
+                            "a file with the path '" + relativePath.getPath() + "' exists");
                 } else {
                     throw new IOException(
-                            "could not create a folder with the path \'" + relativePath.getPath() + "\'");
+                            "could not create a folder with the path '" + relativePath.getPath() + "'");
                 }
             }
         }
         if (!lastMkdirsCallSuccessful) {
             throw new IOException(
-                    "a folder with the path \'" + relativePath.getPath() + "\' already exists");
+                    "a folder with the path '" + relativePath.getPath() + "' already exists");
         }
         return file;
     }
@@ -246,8 +246,7 @@ public class TemporaryFolder extends ExternalResource {
             if (cause instanceof RuntimeException) {
                 throw (RuntimeException) cause;
             }
-            IOException exception = new IOException("Failed to create temporary folder in " + parentFolder);
-            exception.initCause(cause);
+            IOException exception = new IOException("Failed to create temporary folder in " + parentFolder, cause);
             throw exception;
         } catch (Exception e) {
             throw new RuntimeException("Failed to create temporary folder in " + parentFolder, e);
@@ -288,7 +287,7 @@ public class TemporaryFolder extends ExternalResource {
         }
         throw new IOException("Unable to create temporary directory in: "
             + parentFolder.toString() + ". Tried " + TEMP_DIR_ATTEMPTS + " times. "
-            + "Last attempted to create: " + createdFolder.toString());
+            + "Last attempted to create: " + createdFolder);
     }
 
     /**

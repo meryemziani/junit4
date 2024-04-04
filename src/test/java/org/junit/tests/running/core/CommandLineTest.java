@@ -62,7 +62,7 @@ public class CommandLineTest {
     @Test
     public void runTwoClassesAsArray() {
         fCount = 0;
-        JUnitCore.runClasses(new Class[]{Count.class, Count.class});
+        JUnitCore.runClasses(Count.class, Count.class);
         assertEquals(2, fCount);
     }
 

@@ -22,8 +22,8 @@ public class FilterOptionIntegrationTest {
     private static final String EXCLUDES_DUMMY_CATEGORY_1 = "--filter=" +
             ExcludeCategories.class.getName() + "=" + DummyCategory1.class.getName();
 
-    private JUnitCore jUnitCore = new JUnitCore();
-    private TestListener testListener = new TestListener();
+    private final JUnitCore jUnitCore = new JUnitCore();
+    private final TestListener testListener = new TestListener();
 
     @Before
     public void setUp() {
@@ -121,8 +121,8 @@ public class FilterOptionIntegrationTest {
     }
 
     private static class TestListener extends RunListener {
-        private Set<String> startedTests = new HashSet<String>();
-        private Set<String> finishedTests = new HashSet<String>();
+        private final Set<String> startedTests = new HashSet<String>();
+        private final Set<String> finishedTests = new HashSet<String>();
 
         @Override
         public void testFinished(final Description description) {
@@ -182,9 +182,9 @@ public class FilterOptionIntegrationTest {
         }
     }
 
-    public static interface DummyCategory0 {
+    public interface DummyCategory0 {
     }
 
-    public static interface DummyCategory1 {
+    public interface DummyCategory1 {
     }
 }

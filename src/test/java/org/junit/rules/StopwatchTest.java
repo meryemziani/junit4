@@ -24,7 +24,7 @@ import org.junit.runner.Result;
  * @since 4.12
  */
 public class StopwatchTest {
-    private static enum TestStatus { SUCCEEDED, FAILED, SKIPPED }
+    private enum TestStatus { SUCCEEDED, FAILED, SKIPPED }
     private static Record record;
     private static Record finishedRecord;
     private static long fakeTimeNanos = 1234;

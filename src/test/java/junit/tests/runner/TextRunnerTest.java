@@ -33,9 +33,9 @@ public class TextRunnerTest extends TestCase {
         InputStream i = p.getInputStream();
         while ((i.read()) != -1)
             ;
-        assertTrue((p.waitFor() == 0) == success);
+        assertEquals((p.waitFor() == 0), success);
         if (success) {
-            assertTrue(p.exitValue() == 0);
+            assertEquals(0, p.exitValue());
         } else {
             assertFalse(p.exitValue() == 0);
         }

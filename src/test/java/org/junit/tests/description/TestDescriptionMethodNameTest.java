@@ -18,7 +18,7 @@ import static org.junit.Assert.assertNotNull;
 @RunWith(Parameterized.class)
 public class TestDescriptionMethodNameTest {
 
-    private String methodName;
+    private final String methodName;
 
     public TestDescriptionMethodNameTest(String methodName) {
         this.methodName = methodName;

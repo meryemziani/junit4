@@ -71,7 +71,7 @@ public class ExpectedExceptionTest {
                 {ThrowExpectedNullCause.class, everyTestRunSuccessful()},
                 {
                         ThrowUnexpectedCause.class,
-                        hasSingleFailureWithMessage(CoreMatchers.<String>allOf(
+                        hasSingleFailureWithMessage(CoreMatchers.allOf(
                                 startsWith("\nExpected: ("),
                                 containsString("exception with cause is <java.lang.NullPointerException: expected cause>"),
                                 containsString("cause was <java.lang.NullPointerException: an unexpected cause>"),

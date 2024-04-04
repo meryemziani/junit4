@@ -20,7 +20,7 @@ import org.junit.runner.notification.Failure;
  * </pre>
  */
 public class PrintableResult {
-    private Result result;
+    private final Result result;
 
     /**
      * The result of running JUnit on {@code type}

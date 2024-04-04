@@ -42,7 +42,7 @@ public class AssumptionViolatedExceptionTest {
     public TestName name = new TestName();
 
     private static final String MESSAGE = "Assumption message";
-    private static Matcher<Integer> SERIALIZABLE_IS_THREE = new SerializableIsThreeMatcher<Integer>();
+    private static final Matcher<Integer> SERIALIZABLE_IS_THREE = new SerializableIsThreeMatcher<Integer>();
     private static final UnserializableClass UNSERIALIZABLE_VALUE = new UnserializableClass();
     private static final Matcher<UnserializableClass> UNSERIALIZABLE_MATCHER = not(is(UNSERIALIZABLE_VALUE));
 

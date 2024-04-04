@@ -15,7 +15,7 @@ import java.util.List;
  * different constructors to create a MoneyBag.
  */
 public class MoneyBag implements IMoney {
-    private List<Money> fMonies = new ArrayList<Money>(5);
+    private final List<Money> fMonies = new ArrayList<Money>(5);
 
     public static IMoney create(IMoney m1, IMoney m2) {
         MoneyBag result = new MoneyBag();

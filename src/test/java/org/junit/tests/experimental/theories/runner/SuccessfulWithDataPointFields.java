@@ -46,7 +46,7 @@ public class SuccessfulWithDataPointFields {
 
         @Theory
         public void stringsAreOK(String string) {
-            assertTrue(befores == 1);
+            assertEquals(1, befores);
         }
     }
 
@@ -58,7 +58,7 @@ public class SuccessfulWithDataPointFields {
         @DataPoint
         public static String B = "B";
 
-        private List<String> list = new ArrayList<String>();
+        private final List<String> list = new ArrayList<String>();
 
         @Theory
         public void addToEmptyList(String string) {
@@ -72,7 +72,7 @@ public class SuccessfulWithDataPointFields {
         @DataPoint
         public static final int ONE = 1;
 
-        private int x;
+        private final int x;
 
         public PositiveInts(int x) {
             assumeTrue(x > 0);
@@ -92,7 +92,7 @@ public class SuccessfulWithDataPointFields {
         @DataPoint
         public static final int NEGONE = -1;
 
-        private int x;
+        private final int x;
 
         public PositiveIntsWithNegativeField(int x) {
             assumeTrue(x > 0);
@@ -110,7 +110,7 @@ public class SuccessfulWithDataPointFields {
         @DataPoint
         public static final int ONE = 1;
 
-        private int x;
+        private final int x;
 
         public PositiveIntsWithMethodParams(int x) {
             assumeTrue(x > 0);
@@ -205,7 +205,7 @@ public class SuccessfulWithDataPointFields {
 
         @Theory
         public void onlyAnnotatedFields(int i) {
-            assertTrue(i == 0);
+            assertEquals(0, i);
         }
     }
 }

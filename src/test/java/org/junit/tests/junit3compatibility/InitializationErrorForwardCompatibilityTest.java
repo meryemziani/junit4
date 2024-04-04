@@ -1,9 +1,5 @@
 package org.junit.tests.junit3compatibility;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-
 import junit.framework.AssertionFailedError;
 import junit.framework.JUnit4TestAdapter;
 import junit.framework.TestListener;
@@ -15,6 +11,8 @@ import org.junit.runner.RunWith;
 import org.junit.runner.Runner;
 import org.junit.runner.notification.RunNotifier;
 import org.junit.runners.BlockJUnit4ClassRunner;
+
+import static org.junit.Assert.*;
 
 public class InitializationErrorForwardCompatibilityTest {
     public static class CantInitialize extends Runner {
@@ -90,7 +88,7 @@ public class InitializationErrorForwardCompatibilityTest {
         result.addListener(listener);
         fAdapter.run(result);
         assertNotNull(listener.getError());
-        assertTrue(shouldFail == listener.getError());
+        assertSame(shouldFail, listener.getError());
     }
 
     public static class InitializesWithError extends BlockJUnit4ClassRunner {

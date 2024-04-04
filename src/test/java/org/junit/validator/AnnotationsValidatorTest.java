@@ -8,6 +8,7 @@ import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import org.junit.Test;
@@ -25,17 +26,17 @@ public class AnnotationsValidatorTest {
 
         @Override
         public List<Exception> validateAnnotatedClass(TestClass testClass) {
-            return asList(new Exception(ANNOTATED_CLASS_CALLED));
+            return Collections.singletonList(new Exception(ANNOTATED_CLASS_CALLED));
         }
 
         @Override
         public List<Exception> validateAnnotatedField(FrameworkField field) {
-            return asList(new Exception(ANNOTATED_FIELD_CALLED));
+            return Collections.singletonList(new Exception(ANNOTATED_FIELD_CALLED));
         }
 
         @Override
         public List<Exception> validateAnnotatedMethod(FrameworkMethod method) {
-            return asList(new Exception(ANNOTATED_METHOD_CALLED));
+            return Collections.singletonList(new Exception(ANNOTATED_METHOD_CALLED));
         }
     }
 

@@ -10,7 +10,7 @@ import junit.framework.TestResult;
  */
 public class TestImplementorTest extends TestCase {
     public static class DoubleTestCase implements Test {
-        private TestCase fTestCase;
+        private final TestCase fTestCase;
 
         public DoubleTestCase(TestCase testCase) {
             fTestCase = testCase;
@@ -33,7 +33,7 @@ public class TestImplementorTest extends TestCase {
         }
     }
 
-    private DoubleTestCase fTest;
+    private final DoubleTestCase fTest;
 
     public TestImplementorTest() {
         TestCase testCase = new TestCase() {

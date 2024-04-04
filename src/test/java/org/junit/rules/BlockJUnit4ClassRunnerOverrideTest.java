@@ -164,7 +164,7 @@ public class BlockJUnit4ClassRunnerOverrideTest {
 
         @Test
         public void testCreateTestCalled() {
-            assertEquals(true, createTestCalled);
+            assertTrue(createTestCalled);
         }
     }
 

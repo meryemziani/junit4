@@ -27,7 +27,7 @@ import org.junit.runners.BlockJUnit4ClassRunner;
 @Deprecated
 public class JUnit4ClassRunner extends Runner implements Filterable, Sortable {
     private final List<Method> testMethods;
-    private TestClass testClass;
+    private final TestClass testClass;
 
     public JUnit4ClassRunner(Class<?> klass) throws InitializationError {
         testClass = new TestClass(klass);

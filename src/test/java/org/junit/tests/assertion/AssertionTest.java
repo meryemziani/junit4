@@ -401,33 +401,33 @@ public class AssertionTest {
         Object o = new Object();
         assertEquals(o, o);
         assertEquals("abc", "abc");
-        assertEquals(true, true);
+        assertTrue(true);
         assertEquals((byte) 1, (byte) 1);
         assertEquals('a', 'a');
         assertEquals((short) 1, (short) 1);
         assertEquals(1, 1); // int by default, cast is unnecessary
-        assertEquals(1l, 1l);
+        assertEquals(1L, 1L);
         assertEquals(1.0, 1.0, 0.0);
         assertEquals(1.0d, 1.0d, 0.0d);
     }
 
     @Test(expected = AssertionError.class)
     public void notEqualsObjectWithNull() {
-        assertEquals(new Object(), null);
+        assertNull(new Object());
     }
 
     @Test(expected = AssertionError.class)
     public void notEqualsNullWithObject() {
-        assertEquals(null, new Object());
+        assertNull(new Object());
     }
 
     @Test
     public void notEqualsObjectWithNullWithMessage() {
         Object o = new Object();
         try {
-            assertEquals("message", null, o);
+            assertNull("message", o);
         } catch (AssertionError e) {
-            assertEquals("message expected:<null> but was:<" + o.toString() + ">", e.getMessage());
+            assertEquals("message expected:<null> but was:<" + o + ">", e.getMessage());
             return;
         }
         throw new AssertionError(ASSERTION_ERROR_EXPECTED);
@@ -437,9 +437,9 @@ public class AssertionTest {
     public void notEqualsNullWithObjectWithMessage() {
         Object o = new Object();
         try {
-            assertEquals("message", o, null);
+            assertNull("message", o);
         } catch (AssertionError e) {
-            assertEquals("message expected:<" + o.toString() + "> but was:<null>", e.getMessage());
+            assertEquals("message expected:<" + o + "> but was:<null>", e.getMessage());
             return;
         }
         throw new AssertionError(ASSERTION_ERROR_EXPECTED);
@@ -457,7 +457,7 @@ public class AssertionTest {
 
     @Test(expected = AssertionError.class)
     public void booleansNotEqual() {
-        assertEquals(true, false);
+        assertTrue(false);
     }
 
     @Test(expected = AssertionError.class)
@@ -482,7 +482,7 @@ public class AssertionTest {
 
     @Test(expected = AssertionError.class)
     public void longsNotEqual() {
-        assertEquals(1l, 2l);
+        assertEquals(1L, 2L);
     }
 
     @Test(expected = AssertionError.class)
@@ -734,7 +734,7 @@ public class AssertionTest {
     @Test
     public void nullAndStringNullPrintCorrectError() {
         try {
-            assertEquals(null, "null");
+            assertNull("null");
         } catch (AssertionError e) {
             assertEquals("expected: null<null> but was: java.lang.String<null>", e.getMessage());
             return;
@@ -744,7 +744,7 @@ public class AssertionTest {
 
     @Test(expected = AssertionError.class)
     public void stringNullAndNullWorksToo() {
-        assertEquals("null", null);
+        assertNull("null");
     }
 
     private static class NullToString {

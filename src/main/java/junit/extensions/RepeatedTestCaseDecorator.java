@@ -7,7 +7,7 @@ import junit.framework.TestResult;
  * A Decorator that runs a test repeatedly.
  */
 public class RepeatedTestCaseDecorator extends TestDecorator {
-    private int repeatCount;
+    private final int repeatCount;
 
     public RepeatedTestCaseDecorator(Test test, int repeat) {
         super(test);

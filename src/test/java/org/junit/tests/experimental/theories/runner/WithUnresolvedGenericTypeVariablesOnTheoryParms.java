@@ -7,10 +7,7 @@ import static org.junit.experimental.results.ResultMatchers.hasFailureContaining
 import static org.junit.experimental.results.ResultMatchers.hasSingleFailureContaining;
 import static org.junit.experimental.results.ResultMatchers.isSuccessful;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import org.junit.Test;
 import org.junit.experimental.results.PrintableResult;
@@ -130,8 +127,8 @@ public class WithUnresolvedGenericTypeVariablesOnTheoryParms {
         @DataPoints
         public static List<?>[][] items() {
             return new List<?>[][]{
-                    new List<?>[]{Arrays.asList("foo")},
-                    new List<?>[]{Arrays.asList("bar")}
+                    new List<?>[]{Collections.singletonList("foo")},
+                    new List<?>[]{Collections.singletonList("bar")}
             };
         }
 

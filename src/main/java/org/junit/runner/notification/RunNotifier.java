@@ -3,6 +3,7 @@ package org.junit.runner.notification;
 import static java.util.Arrays.asList;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -164,7 +165,7 @@ public class RunNotifier {
      * @param failure the description of the test that failed and the exception thrown
      */
     public void fireTestFailure(Failure failure) {
-        fireTestFailures(listeners, asList(failure));
+        fireTestFailures(listeners, Collections.singletonList(failure));
     }
 
     private void fireTestFailures(List<RunListener> listeners,

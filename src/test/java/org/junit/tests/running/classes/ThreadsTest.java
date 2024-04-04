@@ -19,8 +19,8 @@ import static org.junit.Assert.assertEquals;
 
 public class ThreadsTest {
 
-    private List<Boolean> interruptedFlags = new ArrayList<Boolean>();
-    private JUnitCore core = new JUnitCore();
+    private final List<Boolean> interruptedFlags = new ArrayList<Boolean>();
+    private final JUnitCore core = new JUnitCore();
 
     public static class TestWithInterrupt {
 

@@ -176,7 +176,7 @@ public class Theories extends BlockJUnit4ClassRunner {
         private final FrameworkMethod testMethod;
         private final TestClass testClass;
 
-        private List<AssumptionViolatedException> fInvalidParameters = new ArrayList<AssumptionViolatedException>();
+        private final List<AssumptionViolatedException> fInvalidParameters = new ArrayList<AssumptionViolatedException>();
 
         public TheoryAnchor(FrameworkMethod testMethod, TestClass testClass) {
             this.testMethod = testMethod;

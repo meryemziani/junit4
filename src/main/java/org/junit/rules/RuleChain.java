@@ -59,7 +59,7 @@ public class RuleChain implements TestRule {
     private static final RuleChain EMPTY_CHAIN = new RuleChain(
             Collections.<TestRule>emptyList());
 
-    private List<TestRule> rulesStartingWithInnerMost;
+    private final List<TestRule> rulesStartingWithInnerMost;
 
     /**
      * Returns a {@code RuleChain} without a {@link TestRule}. This method may

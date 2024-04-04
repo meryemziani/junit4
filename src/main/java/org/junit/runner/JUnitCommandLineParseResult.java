@@ -86,9 +86,7 @@ class JUnitCommandLineParseResult {
 
     private String[] copyArray(String[] args, int from, int to) {
         String[] result = new String[to - from];
-        for (int j = from; j != to; ++j) {
-            result[j - from] = args[j];
-        }
+        if (to - from >= 0) System.arraycopy(args, from, result, from - from, to - from);
         return result;
     }
 

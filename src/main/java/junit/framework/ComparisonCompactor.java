@@ -6,9 +6,9 @@ public class ComparisonCompactor {
     private static final String DELTA_END = "]";
     private static final String DELTA_START = "[";
 
-    private int fContextLength;
-    private String fExpected;
-    private String fActual;
+    private final int fContextLength;
+    private final String fExpected;
+    private final String fActual;
     private int fPrefix;
     private int fSuffix;
 

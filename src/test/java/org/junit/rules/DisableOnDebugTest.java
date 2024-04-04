@@ -27,8 +27,7 @@ public class DisableOnDebugTest {
             .asList("-Xrunjdwp:transport=dt_socket,server=y,address=8000",
                     "-Xdebug");
 
-    private static final List<String> POST_JAVA5_DEBUG_ARGUMENTS = Arrays
-            .asList("-agentlib:jdwp=transport=dt_socket,server=y,address=8000");
+    private static final List<String> POST_JAVA5_DEBUG_ARGUMENTS = Collections.singletonList("-agentlib:jdwp=transport=dt_socket,server=y,address=8000");
 
     /**
      * Nasty rule that always fails

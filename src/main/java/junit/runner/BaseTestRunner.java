@@ -108,7 +108,7 @@ public abstract class BaseTestRunner implements TestListener {
             runFailed("Class not found \"" + clazz + "\"");
             return null;
         } catch (Exception e) {
-            runFailed("Error: " + e.toString());
+            runFailed("Error: " + e);
             return null;
         }
         Method suiteMethod = null;
@@ -133,7 +133,7 @@ public abstract class BaseTestRunner implements TestListener {
             runFailed("Failed to invoke suite():" + e.getTargetException().toString());
             return null;
         } catch (IllegalAccessException e) {
-            runFailed("Failed to invoke suite():" + e.toString());
+            runFailed("Failed to invoke suite():" + e);
             return null;
         }
 
@@ -297,7 +297,7 @@ public abstract class BaseTestRunner implements TestListener {
     }
 
     protected static boolean showStackRaw() {
-        return !getPreference("filterstack").equals("true") || fgFilterStack == false;
+        return !getPreference("filterstack").equals("true") || !fgFilterStack;
     }
 
     static boolean filterLine(String line) {

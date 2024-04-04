@@ -59,9 +59,7 @@ public class JUnitCommandLineParseResultTest {
 
     @Test
     public void shouldStopParsingOptionsUponNonOption() throws Exception {
-        String[] restOfArgs = jUnitCommandLineParseResult.parseOptions(new String[]{
-                "--0", "--1", "2", "3"
-        });
+        String[] restOfArgs = jUnitCommandLineParseResult.parseOptions("--0", "--1", "2", "3");
 
         assertThat(restOfArgs, is(new String[]{"2", "3"}));
     }
@@ -69,9 +67,7 @@ public class JUnitCommandLineParseResultTest {
     @Test
     public void shouldCreateFailureUponUnknownOption() throws Exception {
         String unknownOption = "--unknown-option";
-        jUnitCommandLineParseResult.parseOptions(new String[]{
-                unknownOption
-        });
+        jUnitCommandLineParseResult.parseOptions(unknownOption);
 
         Runner runner = jUnitCommandLineParseResult.createRequest(new Computer()).getRunner();
         Description description = runner.getDescription().getChildren().get(0);
@@ -81,9 +77,7 @@ public class JUnitCommandLineParseResultTest {
 
     @Test
     public void shouldCreateFailureUponUncreatedFilter() throws Exception {
-        jUnitCommandLineParseResult.parseOptions(new String[]{
-                "--filter=" + FilterFactoryStub.class.getName()
-        });
+        jUnitCommandLineParseResult.parseOptions("--filter=" + FilterFactoryStub.class.getName());
 
         Runner runner = jUnitCommandLineParseResult.createRequest(new Computer()).getRunner();
         Description description = runner.getDescription().getChildren().get(0);
@@ -94,9 +88,7 @@ public class JUnitCommandLineParseResultTest {
     @Test
     public void shouldCreateFailureUponUnfoundFilterFactory() throws Exception {
         String nonExistentFilterFactory = "NonExistentFilterFactory";
-        jUnitCommandLineParseResult.parseOptions(new String[]{
-                "--filter=" + nonExistentFilterFactory
-        });
+        jUnitCommandLineParseResult.parseOptions("--filter=" + nonExistentFilterFactory);
 
         Runner runner = jUnitCommandLineParseResult.createRequest(new Computer()).getRunner();
         Description description = runner.getDescription().getChildren().get(0);
@@ -135,7 +127,7 @@ public class JUnitCommandLineParseResultTest {
         }
     }
 
-    public static interface DummyCategory0 {
+    public interface DummyCategory0 {
     }
 
     public static class DummyTest {

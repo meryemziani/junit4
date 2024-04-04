@@ -23,7 +23,7 @@ public class MethodValidator {
 
     private final List<Throwable> errors = new ArrayList<Throwable>();
 
-    private TestClass testClass;
+    private final TestClass testClass;
 
     public MethodValidator(TestClass testClass) {
         this.testClass = testClass;

@@ -27,7 +27,7 @@ public class MethodRoadie {
     private final Object test;
     private final RunNotifier notifier;
     private final Description description;
-    private TestMethod testMethod;
+    private final TestMethod testMethod;
 
     public MethodRoadie(Object test, TestMethod method, RunNotifier notifier, Description description) {
         this.test = test;
@@ -112,7 +112,6 @@ public class MethodRoadie {
         } catch (InvocationTargetException e) {
             Throwable actual = e.getTargetException();
             if (actual instanceof AssumptionViolatedException) {
-                return;
             } else if (!testMethod.expectsException()) {
                 addFailure(actual);
             } else if (testMethod.isUnexpected(actual)) {

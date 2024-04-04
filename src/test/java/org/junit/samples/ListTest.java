@@ -1,7 +1,5 @@
 package org.junit.samples;
 
-import static org.junit.Assert.assertTrue;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +8,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 /**
  * A sample test case, testing {@link java.util.ArrayList}.
@@ -51,27 +51,27 @@ public class ListTest {
         for (int i = 0; i < 100; i++) {
             fFull.add(i);
         }
-        assertTrue(fFull.size() == 100 + size);
+        assertEquals(fFull.size(), 100 + size);
     }
 
     @Test
     public void testCopy() {
         List<Integer> copy = new ArrayList<Integer>(fFull.size());
         copy.addAll(fFull);
-        assertTrue(copy.size() == fFull.size());
+        assertEquals(copy.size(), fFull.size());
         assertTrue(copy.contains(1));
     }
 
     @Test
     public void contains() {
         assertTrue(fFull.contains(1));
-        assertTrue(!fEmpty.contains(1));
+        assertFalse(fEmpty.contains(1));
     }
 
     @Test(expected = IndexOutOfBoundsException.class)
     public void elementAt() {
         int i = fFull.get(0);
-        assertTrue(i == 1);
+        assertEquals(1, i);
         fFull.get(fFull.size()); // Should throw IndexOutOfBoundsException
     }
 
@@ -86,6 +86,6 @@ public class ListTest {
     @Test
     public void removeElement() {
         fFull.remove(Integer.valueOf(3));
-        assertTrue(!fFull.contains(3));
+        assertFalse(fFull.contains(3));
     }
 }

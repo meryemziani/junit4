@@ -26,8 +26,8 @@ public class WithParameterSupplier {
     public ExpectedException expected = ExpectedException.none();
 
     private static class SimplePotentialAssignment extends PotentialAssignment {
-        private String description;
-        private Object value;
+        private final String description;
+        private final Object value;
 
         public SimplePotentialAssignment(Object value, String description) {
             this.value = value;

@@ -133,8 +133,8 @@ public class ParameterizedTestMethodTest {
         }
     }
 
-    private Class<?> fClass;
-    private int fErrorCount;
+    private final Class<?> fClass;
+    private final int fErrorCount;
 
     public static class SuperWrong {
         @Test

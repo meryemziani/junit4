@@ -6,6 +6,7 @@ import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 import org.junit.experimental.results.PrintableResult;
 import org.junit.experimental.theories.DataPoint;
@@ -31,7 +32,7 @@ public class PrintableResultTest {
             }
         });
 
-        assertThat(new PrintableResult(asList(failure)).toString(), allOf(
+        assertThat(new PrintableResult(Collections.singletonList(failure)).toString(), allOf(
                 containsString(descriptionName), containsString(stackTraceClassName)));
     }
 

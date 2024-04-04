@@ -48,7 +48,7 @@ public class BlockJUnit4ClassRunnerWithParametersTest {
 
     @Retention(RetentionPolicy.RUNTIME)
     @Target(ElementType.TYPE)
-    private static @interface DummyAnnotation {
+    private @interface DummyAnnotation {
     }
 
     @RunWith(Parameterized.class)

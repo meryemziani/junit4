@@ -2,9 +2,7 @@ package org.junit.runners.model;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import java.lang.annotation.Annotation;
 import java.util.ArrayList;
@@ -177,14 +175,14 @@ public class TestClassTest {
         TestClass testClass = new TestClass(DummyClass.class);
         TestClass testClassThatWrapsSameJavaClass = new TestClass(
                 DummyClass.class);
-        assertTrue(testClass.equals(testClassThatWrapsSameJavaClass));
+        assertEquals(testClass, testClassThatWrapsSameJavaClass);
     }
 
     @Test
     public void isEqualToTestClassThatWrapsNoJavaClassToo() {
         TestClass testClass = new TestClass(null);
         TestClass testClassThatWrapsNoJavaClassToo = new TestClass(null);
-        assertTrue(testClass.equals(testClassThatWrapsNoJavaClassToo));
+        assertEquals(testClass, testClassThatWrapsNoJavaClassToo);
     }
 
     @Test
@@ -192,13 +190,13 @@ public class TestClassTest {
         TestClass testClass = new TestClass(DummyClass.class);
         TestClass testClassThatWrapsADifferentJavaClass = new TestClass(
                 AnotherDummyClass.class);
-        assertFalse(testClass.equals(testClassThatWrapsADifferentJavaClass));
+        assertNotEquals(testClass, testClassThatWrapsADifferentJavaClass);
     }
 
     @Test
     public void isNotEqualToNull() {
         TestClass testClass = new TestClass(DummyClass.class);
-        assertFalse(testClass.equals(null));
+        assertNotEquals(null, testClass);
     }
 
     private static class DummyClass {
@@ -230,7 +228,7 @@ public class TestClassTest {
     @Test
     public void identifiesPublicModifier() {
         TestClass tc = new TestClass(PublicClass.class);
-        assertEquals("Wrong flag 'public',", true, tc.isPublic());
+        assertTrue("Wrong flag 'public',", tc.isPublic());
     }
 
     static class NonPublicClass {
@@ -240,7 +238,7 @@ public class TestClassTest {
     @Test
     public void identifiesNonPublicModifier() {
         TestClass tc = new TestClass(NonPublicClass.class);
-        assertEquals("Wrong flag 'public',", false, tc.isPublic());
+        assertFalse("Wrong flag 'public',", tc.isPublic());
     }
 
     @Ignore

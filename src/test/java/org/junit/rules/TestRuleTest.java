@@ -201,7 +201,7 @@ public class TestRuleTest {
 
     public static class PrivateRule {
         @Rule
-        private TestRule rule = new TestName();
+        private final TestRule rule = new TestName();
 
         @Test
         public void foo() {
@@ -244,7 +244,7 @@ public class TestRuleTest {
     }
 
     public static class MethodExampleTest {
-        private TestRule example = new TestRule() {
+        private final TestRule example = new TestRule() {
             public Statement apply(final Statement base, Description description) {
                 return new Statement() {
                     @Override
@@ -290,7 +290,7 @@ public class TestRuleTest {
     }
 
     public static class MethodOneFieldTwoKindsOfRule {
-        private MethodBothKindsOfRule both = new MethodBothKindsOfRule();
+        private final MethodBothKindsOfRule both = new MethodBothKindsOfRule();
 
         @Rule
         public MethodBothKindsOfRule getBoth() {
@@ -333,14 +333,14 @@ public class TestRuleTest {
             }
         }
 
-        private TestRule incrementor1 = new Increment();
+        private final TestRule incrementor1 = new Increment();
 
         @Rule
         public TestRule getIncrementor1() {
             return incrementor1;
         }
 
-        private TestRule incrementor2 = new Increment();
+        private final TestRule incrementor2 = new Increment();
 
         @Rule
         public TestRule getIncrementor2() {
@@ -450,7 +450,7 @@ public class TestRuleTest {
     }
 
     public static class MethodUsesCustomMethodRule {
-        private CustomTestName counter = new CustomTestName();
+        private final CustomTestName counter = new CustomTestName();
 
         @Rule
         public CustomTestName getCounter() {
@@ -471,7 +471,7 @@ public class TestRuleTest {
     private static final List<String> orderList = new LinkedList<String>();
 
     private static class OrderTestRule implements TestRule {
-        private String name;
+        private final String name;
 
         public OrderTestRule(String name) {
             this.name = name;
