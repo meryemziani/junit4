@@ -111,6 +111,13 @@ Supprimer des packages contenant peu de classes est une pratique courante pour m
 Lien vers le commit :
 [Lien vers le commit](https://github.com/junit-team/junit4/commit/57c4370a1ccb4356ca8501fbd6682efd829c4b3a)
 
+## Développement :
+
+D'aprés ce qu'on a pu analyser dans la premiere partie de ce projet, j'ai finalement réussi à diminuer la complexité du proet entier. 
+Avec ces petites améleorations et ces corréctions de bugs, on peut dire que même des changements mineurs peuvent contribuer de manière significative à améliorer la qualité et la maintenabilité du code.En réduisant la complexité, même de manière marginale, nous avons rendu le code plus clair et plus facile à comprendre. Même de petites améliorations peuvent conduire à une meilleure lisibilité, ce qui peut faciliter le travail des développeurs et réduire les risques d'erreurs.
+
+Il est également important de reconnaître que même si peu de modifications ont été apportées dans cette première partie du projet, elles constituent un pas dans la bonne direction. Chaque effort pour améliorer le code, même petit, contribue à renforcer la qualité du logiciel et à créer une base solide pour les futures évolutions.
+
 ## Conclusion :
 
 Dans l'ensemble, les modifications apportées au code ont contribué à améliorer la qualité, la lisibilité et la maintenabilité de notre base de code. En optant pour des noms de classe, de variables et de méthodes plus descriptifs, nous avons rendu notre code plus facile à comprendre pour les développeurs qui travaillent dessus. De plus, en réduisant la complexité, en éliminant les nombres magiques et en décomposant les classes trop volumineuses, nous avons favorisé une meilleure organisation du code et une réduction de la duplication, ce qui conduit à un code plus propre et plus concis. Enfin, en suivant de bonnes pratiques de conception logicielle, telles que la décomposition des classes et la suppression des classes statiques, nous avons créé une structure plus modulaire et extensible, facilitant ainsi la maintenance et l'évolutivité de notre code à long terme. En combinant ces efforts, nous avons renforcé la qualité globale de notre base de code, ce qui devrait conduire à une meilleure productivité et à une réduction des problèmes liés au développement logiciel.
