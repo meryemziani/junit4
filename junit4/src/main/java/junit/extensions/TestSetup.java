@@ -31,6 +31,7 @@ public class TestSetup extends TestDecorator {
      * Sets up the fixture. Override to set up additional fixture state.
      */
     protected void setUp() throws Exception {
+        throw new UnsupportedOperationException("setUp() method is not implemented");
     }
 
     /**
@@ -38,5 +39,8 @@ public class TestSetup extends TestDecorator {
      * state.
      */
     protected void tearDown() throws Exception {
+        // This method is intentionally left empty because the test teardown is not required for this particular test case.
+        // If specific teardown actions are needed in the future, they should be added here.
+        throw new UnsupportedOperationException("tearDown() method is not implemented");
     }
 }
