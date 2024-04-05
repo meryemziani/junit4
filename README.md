@@ -106,5 +106,11 @@ Lien vers le commit :
 
 ### Suppression d'un package :
 
+Supprimer des packages contenant peu de classes est une pratique courante pour maintenir la structure et la lisibilité de notre code. Lorsqu'un package ne contient que quelques classes, il peut être difficile de justifier son existence, car cela peut introduire de la confusion et de la complexité inutile. En éliminant ces packages, vous simplifiez la hiérarchie de votre projet, ce qui facilite la navigation et la compréhension pour les développeurs. De plus, cela peut aider à prévenir la fragmentation du code en regroupant les classes connexes dans des packages plus larges et mieux organisés.
+
 Lien vers le commit :
 [Lien vers le commit](https://github.com/junit-team/junit4/commit/57c4370a1ccb4356ca8501fbd6682efd829c4b3a)
+
+## Conclusion :
+
+Dans l'ensemble, les modifications apportées au code ont contribué à améliorer la qualité, la lisibilité et la maintenabilité de notre base de code. En optant pour des noms de classe, de variables et de méthodes plus descriptifs, nous avons rendu notre code plus facile à comprendre pour les développeurs qui travaillent dessus. De plus, en réduisant la complexité, en éliminant les nombres magiques et en décomposant les classes trop volumineuses, nous avons favorisé une meilleure organisation du code et une réduction de la duplication, ce qui conduit à un code plus propre et plus concis. Enfin, en suivant de bonnes pratiques de conception logicielle, telles que la décomposition des classes et la suppression des classes statiques, nous avons créé une structure plus modulaire et extensible, facilitant ainsi la maintenance et l'évolutivité de notre code à long terme. En combinant ces efforts, nous avons renforcé la qualité globale de notre base de code, ce qui devrait conduire à une meilleure productivité et à une réduction des problèmes liés au développement logiciel.
