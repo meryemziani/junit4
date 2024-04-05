@@ -10,13 +10,13 @@
 - **ZIANI Meryem**
 
 ## Table des Matières
-1. [Outils utilisés](#outils-utilisés)
-2. [Petites modifications](#Petites-modifications)
-3. [Moyennes modifications](#Moyennes-modifications)
-4. [Grandes modifications](#Grandes-modifications)
-5. [Développement](#Développement)
-6. [Conclusion](#Conclusion)
-
+1. [Outils Utilisés](#outils-utilisés)
+2. [Petites modifications](#présentation-globale-du-projet)
+3. [Moyennes modifications](#historique-du-logiciel)
+4. [Grandes modifications](#architecture-logicielle)
+5. [Développement](#analyse-approfondie)
+6. [Conclusion](#conclusion)
+   
 ## Outils Utilisés
 - SonarQube
 - IntelliJ
