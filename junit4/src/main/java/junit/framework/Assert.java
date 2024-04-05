@@ -75,7 +75,7 @@ public class Assert {
         if (expected != null && expected.equals(actual)) {
             return;
         }
-        failNotEquals(message, expected, actual);
+        Fail.failNotEquals(message, expected, actual);
     }
 
     /**
@@ -117,7 +117,7 @@ public class Assert {
             return;
         }
         if (!(Math.abs(expected - actual) <= delta)) {
-            failNotEquals(message, Double.valueOf(expected), Double.valueOf(actual));
+            Fail.failNotEquals(message, Double.valueOf(expected), Double.valueOf(actual));
         }
     }
 
@@ -138,8 +138,8 @@ public class Assert {
         if (Float.compare(expected, actual) == 0) {
             return;
         }
-        if (!isWithinDelta(expected, actual, delta)) {
-            failNotEquals(message, Double.valueOf(expected), Double.valueOf(actual));
+        if (!(Math.abs(expected - actual) <= delta)) {
+            Fail.failNotEquals(message, Float.valueOf(expected), Float.valueOf(actual));
         }
     }
 
@@ -285,7 +285,7 @@ public class Assert {
         if (expected == actual) {
             return;
         }
-        failNotSame(message, expected, actual);
+        Fail.failNotSame(message, expected, actual);
     }
 
     /**
@@ -303,7 +303,7 @@ public class Assert {
      */
     public static void assertNotSame(String message, Object expected, Object actual) {
         if (expected == actual) {
-            failSame(message);
+            Fail.failSame(message);
         }
     }
 
@@ -315,19 +315,7 @@ public class Assert {
         assertNotSame(null, expected, actual);
     }
 
-    public static void failSame(String message) {
-        String formatted = (message != null) ? message + " " : "";
-        fail(formatted + "expected not same");
-    }
 
-    public static void failNotSame(String message, Object expected, Object actual) {
-        String formatted = (message != null) ? message + " " : "";
-        fail(formatted + "expected same:<" + expected + "> was not:<" + actual + ">");
-    }
-
-    public static void failNotEquals(String message, Object expected, Object actual) {
-        fail(format(message, expected, actual));
-    }
 
     public static String format(String message, Object expected, Object actual) {
         String formatted = "";

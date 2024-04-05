@@ -4,6 +4,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
+
 /**
  * A test case defines the fixture to run multiple tests. To define a test case<br/>
  * <ol>
@@ -452,15 +453,15 @@ public abstract class TestCase extends Assert implements Test {
     }
 
     public static void failSame(String message) {
-        Assert.failSame(message);
+        Fail.failSame(message);
     }
 
     public static void failNotSame(String message, Object expected, Object actual) {
-        Assert.failNotSame(message, expected, actual);
+        Fail.failNotSame(message, expected, actual);
     }
 
     public static void failNotEquals(String message, Object expected, Object actual) {
-        Assert.failNotEquals(message, expected, actual);
+        Fail.failNotEquals(message, expected, actual);
     }
 
     public static String format(String message, Object expected, Object actual) {
