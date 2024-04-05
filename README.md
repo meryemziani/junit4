@@ -70,11 +70,20 @@ Les modifications apportées à la méthode ***hasCorrectCategoryAnnotation*** v
 
 Notre complexité est passé de 46 à 42 :
 ![](screen/complexityCyclo.png)
-![](screen/complexity.png)
+![](screen/newCOmplexity.png)
 
 Lien vers le commit :
 [Lien vers le commit](https://github.com/junit-team/junit4/commit/ff27b19ce1b9826188eb11c1adddb426bcff5772)
 
+### Lever une exception :
+
+Lien vers le commit :
+[Lien vers le commit](https://github.com/junit-team/junit4/commit/5ecb9a6d5b9e72e0a577da32d1a9de0acc64a28d)
+
+### Passer un test orange en vert :
+
+![](screen/testOrange.png)
+![](screen/testPassed.png)
 
 ## Grandes modification : 
 
@@ -94,3 +103,8 @@ La décision de supprimer la classe statique et de déplacer les constantes `TYP
 
 Lien vers le commit :
 [Lien vers le commit](https://github.com/junit-team/junit4/commit/d0af6f552036da8ebd29f33ad1f55be572f65406)
+
+### Suppression d'un package :
+
+Lien vers le commit :
+[Lien vers le commit](https://github.com/junit-team/junit4/commit/57c4370a1ccb4356ca8501fbd6682efd829c4b3a)
