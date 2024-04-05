@@ -75,3 +75,14 @@ Notre complexité est passé de 46 à 42 :
 Lien vers le commit :
 [Lien vers le commit](https://github.com/junit-team/junit4/commit/ff27b19ce1b9826188eb11c1adddb426bcff5772)
 
+
+## Grandes modification : 
+
+### Décomposition d'une god classe :
+
+**Décomposition de la god classe Assert :**
+
+La classe Assert contenait auparavant un grand nombre de méthodes pour gérer les échecs d'assertions dans nos tests unitaires. Cependant, cela entraînait une classe surchargée avec une multitude de responsabilités, ce qui la rendait difficile à maintenir et à comprendre. Pour remédier à cette situation, nous avons entrepris de décomposer la classe Assert en extrayant les méthodes liées à la gestion des erreurs d'assertions dans une classe distincte appelée Fail. Cette décomposition nous a permis de séparer les responsabilités liées à la gestion des erreurs des assertions de la logique d'assertion proprement dite. Désormais, la classe Fail est responsable de la gestion des échecs d'assertions, tandis que la classe Assert se concentre uniquement sur la logique d'assertion, ce qui rend notre code plus modulaire, plus lisible et plus facile à maintenir.
+
+Lien vers le commit :
+[Lien vers le commit](https://github.com/junit-team/junit4/commit/ff27b19ce1b9826188eb11c1adddb426bcff5772)
