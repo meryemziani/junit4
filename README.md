@@ -86,3 +86,11 @@ La classe Assert contenait auparavant un grand nombre de méthodes pour gérer l
 
 Lien vers le commit :
 [Lien vers le commit](https://github.com/junit-team/junit4/commit/a9d8523358fb3fbb539d849c6d9d52847cfed647)
+
+
+### Suppression d'une classe static :
+
+La décision de supprimer la classe statique et de déplacer les constantes `TYPE_TEST_RULE` et `TYPE_METHOD_RULE` dans une classe publique ***RuleEntry*** distincte a été prise dans le but d'améliorer la structure et la maintenabilité du code. Cette approche a également facilité la réutilisation des constantes dans d'autres parties du code et a permis une meilleure encapsulation, réduisant ainsi le couplage et rendant le code plus modulaire. En conséquence, la modification a contribué à rendre le code plus clair, plus facile à comprendre et plus facile à maintenir, tout en favorisant de bonnes pratiques de conception logicielle.
+
+Lien vers le commit :
+[Lien vers le commit](https://github.com/junit-team/junit4/commit/d0af6f552036da8ebd29f33ad1f55be572f65406)
