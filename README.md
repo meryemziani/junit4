@@ -11,9 +11,9 @@
 
 ## Table des Matières
 1. [Outils Utilisés](#outils-utilisés)
-2. [Petites modifications](#présentation-globale-du-projet)
-3. [Moyennes modifications](#historique-du-logiciel)
-4. [Grandes modifications](#architecture-logicielle)
+2. [Petites Modifications](#présentation-globale-du-projet)
+3. [Moyennes Modifications](#historique-du-logiciel)
+4. [Grandes Modifications](#architecture-logicielle)
 5. [Développement](#analyse-approfondie)
 6. [Conclusion](#conclusion)
    
