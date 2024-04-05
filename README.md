@@ -11,11 +11,11 @@
 
 ## Table des Matières
 0. [Outils utilisés](#outils-utilisés)
-1. [Petites modifications](#petites-modifications)
-2. [Moyennes modifications](#moyennes-modifications)
-3. [Grandes modifications](#grandes-modifications)
-4. [Développement](#développement)
-5. [Conclusion](#conclusion)
+1. [Petites modifications](#Petites-modifications)
+2. [Moyennes modifications](#Moyennes-modifications)
+3. [Grandes modifications](#Grandes-modifications)
+4. [Développement](#Développement)
+5. [Conclusion](#Conclusion)
 
 ## Outils Utilisés
 - SonarQube
@@ -23,6 +23,7 @@
 - Plugin Metrics Reloaded
 
 ## Petites modification : 
+
 ### Renommage :
   
 - Une classe :
