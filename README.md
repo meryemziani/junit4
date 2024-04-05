@@ -2,7 +2,7 @@
     <img src="screen/logo.png" alt="Logo du Projet" />
 </p>
 
-# Amélioration du projet : JUnit 4 
+# Amélioration du projet : Junit 4 
 
 ## Travail encadré par : Cyril FERLICOT
 
@@ -69,13 +69,15 @@ Lien vers le commit :
 Les modifications apportées à la méthode ***hasCorrectCategoryAnnotation*** visent à réduire la complexité et à améliorer la lisibilité du code. En extrayant des parties de la logique dans des méthodes privées distinctes telles que checkEmptyChildCategories et checkIncludedCategories, le code est maintenant mieux organisé et plus facile à comprendre. Les noms significatifs de ces nouvelles méthodes clarifient leur rôle dans la logique globale de la méthode, facilitant ainsi la compréhension de la fonctionnalité de chaque segment de code. De plus, la réutilisation de la logique extraites dans d'autres parties du code est facilitée, ce qui favorise une meilleure modularité et réduit la duplication de code. En consolidant les conditions et en évitant la répétition de la logique, le code est devenu plus concis tout en conservant sa fonctionnalité.
 
 Notre complexité est passé de 46 à 42 :
-![](screen/complexityCyclo.png)
+![](screen/complexity.png)
 ![](screen/newCOmplexity.png)
 
 Lien vers le commit :
 [Lien vers le commit](https://github.com/junit-team/junit4/commit/ff27b19ce1b9826188eb11c1adddb426bcff5772)
 
 ### Lever une exception :
+
+Lever une exception dans un programme offre un moyen efficace de signaler les erreurs et les conditions exceptionnelles qui surviennent pendant son exécution. Cela permet aux développeurs de détecter et de corriger rapidement les problèmes potentiels, contribuant ainsi à la robustesse et à la fiabilité du logiciel. En séparant la logique de gestion des erreurs de la logique métier principale, les exceptions rendent le code plus modulaire et plus facile à comprendre.
 
 Lien vers le commit :
 [Lien vers le commit](https://github.com/junit-team/junit4/commit/5ecb9a6d5b9e72e0a577da32d1a9de0acc64a28d)
