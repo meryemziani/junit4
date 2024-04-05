@@ -120,6 +120,9 @@ Avec ces petites améleorations et ces corréctions de bugs, on peut dire que m�
 
 Il est également important de reconnaître que même si peu de modifications ont été apportées dans cette première partie du projet, elles constituent un pas dans la bonne direction. Chaque effort pour améliorer le code, même petit, contribue à renforcer la qualité du logiciel et à créer une base solide pour les futures évolutions.
 
+![](screen/ancienProjet.png)
+
+![](screen/nouveau.png)
 ## Conclusion :
 
 Dans l'ensemble, les modifications apportées au code ont contribué à améliorer la qualité, la lisibilité et la maintenabilité de notre base de code. En optant pour des noms de classe, de variables et de méthodes plus descriptifs, nous avons rendu notre code plus facile à comprendre pour les développeurs qui travaillent dessus. De plus, en réduisant la complexité, en éliminant les nombres magiques et en décomposant les classes trop volumineuses, nous avons favorisé une meilleure organisation du code et une réduction de la duplication, ce qui conduit à un code plus propre et plus concis. Enfin, en suivant de bonnes pratiques de conception logicielle, telles que la décomposition des classes et la suppression des classes statiques, nous avons créé une structure plus modulaire et extensible, facilitant ainsi la maintenance et l'évolutivité de notre code à long terme. En combinant ces efforts, nous avons renforcé la qualité globale de notre base de code, ce qui devrait conduire à une meilleure productivité et à une réduction des problèmes liés au développement logiciel.
