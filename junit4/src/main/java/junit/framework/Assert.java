@@ -138,8 +138,8 @@ public class Assert {
         if (Float.compare(expected, actual) == 0) {
             return;
         }
-        if (!(Math.abs(expected - actual) <= delta)) {
-            failNotEquals(message, Float.valueOf(expected), Float.valueOf(actual));
+        if (!isWithinDelta(expected, actual, delta)) {
+            failNotEquals(message, Double.valueOf(expected), Double.valueOf(actual));
         }
     }
 
